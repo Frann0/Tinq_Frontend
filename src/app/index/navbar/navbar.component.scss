@@ -1,0 +1,52 @@
+.navbar{
+  background: black;
+}
+.navbar-brand{
+  margin-left: 20px;
+}
+
+.logo{
+  width: 100px;
+  height: 56.25px;
+}
+
+.leftbuttonsContainer{
+  margin-left: auto;
+}
+
+.login{
+  cursor: pointer;
+  text-align: center;
+  margin-right: 30px;
+  background: black;
+  color: white;
+  border-radius: 0px 5px 5px 0px;
+  width: 150px;
+  height: 40px;
+  border: solid white;
+  border-width: 1px 1px 1px 0px;
+}
+
+.login:hover{
+  background: #63a447;
+}
+
+.signup{
+  cursor: pointer;
+  text-align: center;
+  background: white;
+  color: black;
+  border: solid white;
+  border-width: 1px 0px 1px 1px;
+  border-radius: 5px 0px 0px 5px;
+  width: 150px;
+  height: 40px;
+}
+
+.signup:hover{
+  color: white;
+  background: #3D8EB9;
+}
+
+
+

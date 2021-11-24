@@ -1,0 +1,50 @@
+<div class="SignupContainer">
+  <div class="SignupWrapper">
+    <div class="titleWrapper">
+      <h1 class="title">SIGN UP</h1>
+    </div>
+    <div class="BodyWrapper">
+      <div class="introText">
+        <p>We are so excited to have you join this journey with us! <br>
+       Please, fill out this quick registration form below, and we will do the rest of the work!</p>
+      </div>
+
+      <form [formGroup]="RegForm" (ngSubmit)="onSubmit()">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="firstname" placeholder="First name" formControlName="firstName" >
+        <label for="firstname"> First name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="lastname" placeholder="Last name" formControlName="lastName">
+        <label for="lastname">Last name</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email" >
+        <label for="email">Email address</label>
+      </div>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+        <label for="password">Password</label>
+      </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" formControlName="tos">
+
+      <label class="form-check-label" for="flexCheckDefault">
+        I have read and accept Tinq's <a href="#">terms of service</a>
+      </label>
+    </div>
+    </form>
+
+    </div>
+    <div class="FooterWrapper">
+      <ul class="leftbuttonsContainer navbar-nav nav-flex-icons">
+        <div class="btn-group shadow-none" role="group">
+          <a href="/index">
+            <button type="button" class="btn shadow-none signup"> <i class="fas fa-angle-left"></i> Cancel</button>
+          </a>
+            <button type="button" class="btn shadow-none login" (click)="onSubmit()">Sign Up <i class="fas fa-angle-right"></i></button>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

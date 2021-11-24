@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SignUpComponent} from "../Auth/sign-up/sign-up.component";
 
 @Component({
   selector: 'app-index',
