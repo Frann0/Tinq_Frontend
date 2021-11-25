@@ -1,0 +1,82 @@
+.bodyContainer{
+  width: 100%;
+  height: 100%;
+}
+
+.feedContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  overflow: scroll;
+  width: auto;
+  height: 100%;
+  max-height: 800px;
+  margin: 0 auto;
+}
+
+.tinqWrapper{
+  border-radius: 20px;
+  width: 500px;
+  height: 600px;
+  margin: 25px auto;
+  background: white;
+  color: black;
+  box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.41);
+}
+
+.byContainer{
+  width: 100%;
+  height: 45px;
+  border: solid darkgray;
+  border-width: 0 0 1px 0;
+}
+
+.byWrapper{
+  width: 80%;
+  height: 45px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.byContainer p{
+  text-align: start;
+}
+
+.contentContainer{
+  width: 100%;
+  max-height: 80%;
+  overflow: scroll;
+  align-items: center;
+  justify-content: center;
+}
+
+.contentContainer p{
+  width: 80%;
+  margin: 5px auto 5px;
+  font-size: 20px;
+}
+
+.footerContainer{
+
+  width: 100%;
+  height: 45px;
+  border: solid darkgray;
+  border-width: 1px 0 0 0;
+}
+
+.tagWrapper{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  overflow-x: scroll;
+
+}
+
+.footerContainer p{
+  width: 80%;
+  margin: 5px;
+}
+

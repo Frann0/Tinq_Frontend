@@ -1,0 +1,43 @@
+.navbar{
+  background: black;
+  justify-content: space-between;
+  width: 100%;
+}
+.navbar-brand{
+  margin-left: 20px;
+}
+
+.logo{
+  width: 100px;
+  height: 56.25px;
+}
+
+.logoContainer{
+  width: 10%;
+  height: 100%;
+}
+
+
+.searchContainer{
+  width: 40%;
+  height: 100%;
+}
+
+
+.userContainer{
+  width: 10%;
+  height: 100%;
+}
+
+.dropdown-toggle{
+  cursor: pointer;
+  text-align: center;
+  background: white;
+  color: black;
+  border-radius: 5px;
+  width: 150px;
+  height: 40px;
+}
+
+
+

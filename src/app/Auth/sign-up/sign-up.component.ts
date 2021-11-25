@@ -30,8 +30,8 @@ export class SignUpComponent implements OnInit{
   onSubmit() {
     const userdto = this.RegForm.value as UserDto;
 
-    //this._auth.register(userdto);
+    this._auth.register(userdto);
     console.log(userdto);
-    this.router.navigate(['/index']);
+    //this.router.navigate(['/index']);
   }
 }

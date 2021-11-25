@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+
+<div class="SignupContainer">
+  <div class="SignupWrapper">
+    <div class="titleWrapper">
+      <h1 class="title">LOG IN</h1>
+    </div>
+    <div class="BodyWrapper">
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email" >
+          <label for="email">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+          <label for="password">Password</label>
+        </div>
+      </form>
+
+    </div>
+    <div class="FooterWrapper">
+      <ul class="leftbuttonsContainer navbar-nav nav-flex-icons">
+
+          <button type="submit" class="btn shadow-none login" (click)="login()">Log in <i class="fas fa-angle-right"></i></button>
+          <li>Need an account? <a href="/auth/sign-up">Register here</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

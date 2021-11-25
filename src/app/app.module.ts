@@ -22,21 +22,18 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IndexComponent } from './index/index.component';
 import { BodyComponent } from './index/body/body.component';
-import { FooterComponent } from './index/footer/footer.component';
-import { NavbarComponent } from './index/navbar/navbar.component';
 import { ReactiveFormsModule } from "@angular/forms";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {RouterModule} from "@angular/router";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {AuthInterceptor} from "./Auth/interceptors/auth.interceptor";
+import {SharedModule} from "./shared/shared.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    BodyComponent,
-    FooterComponent,
-    NavbarComponent,
+    BodyComponent
   ],
   imports: [
     BrowserModule,
@@ -60,9 +57,12 @@ import {AuthInterceptor} from "./Auth/interceptors/auth.interceptor";
     MdbValidationModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 
