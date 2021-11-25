@@ -1,6 +1,8 @@
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TinqModel} from "../shared/tinqModel";
+import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
+
 
 @Component({
   selector: 'app-feed',
@@ -18,7 +20,13 @@ export class FeedComponent implements OnInit {
   tags: string[] = ["#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum"]
 
   tinq: TinqModel | undefined;
-  constructor() { this.testTinqs = [
+
+  public isAdmin: boolean = true;
+
+  public element: SafeHtml | undefined;
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.testTinqs = [
     {username: "username", content: this.content, tags: this.tags},
     {username: "username", content: this.content, tags: this.tags},
     {username: "username", content: this.content, tags: this.tags},
@@ -31,8 +39,8 @@ export class FeedComponent implements OnInit {
   ]}
 
 
-
   ngOnInit(): void {
+
 
     document.body.style.backgroundColor = "white";
 

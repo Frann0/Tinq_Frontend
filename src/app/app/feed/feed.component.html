@@ -3,8 +3,26 @@
   <div class="feedContainer">
 
 
+
     <div class="tinqWrapper" *ngFor="let tinq of testTinqs">
-      <div class="byContainer">
+      <div class="card">
+        <! Check om vi er admin eller ej, for at vise hvilke knapper på hover->
+        <div class="multi-button" *ngIf="isAdmin; else user">
+        <button class="fas fa-heart"></button>
+        <button class="fas fa-comment"></button>
+        <button class="fas fa-user-slash"></button>
+        <button class="fas fa-trash"></button>
+      </div>
+
+        <ng-template #user>
+          <div class="multi-button">
+          <button class="fas fa-heart"></button>
+          <button class="fas fa-comment"></button>
+          </div>
+        </ng-template>
+
+      <div class="container">
+        <div class="byContainer">
         <div class="byWrapper">
           <p class="by">Thought by: {{tinq.username}}</p>
         </div>
@@ -18,8 +36,9 @@
           <p>{{tinq.tags}}</p>
         </div>
       </div>
+      </div>
     </div>
-
+    </div>
   </div>
 </div>
 
