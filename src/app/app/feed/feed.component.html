@@ -2,9 +2,7 @@
 <div class="bodyContainer">
   <div class="feedContainer">
 
-
-
-    <div class="tinqWrapper" *ngFor="let tinq of testTinqs">
+    <div class="tinqWrapper" *ngFor="let tinq of filteredTinqs">
       <div class="card">
         <! Check om vi er admin eller ej, for at vise hvilke knapper på hover->
         <div class="multi-button" *ngIf="isAdmin; else user">

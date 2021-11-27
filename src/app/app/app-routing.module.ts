@@ -5,7 +5,8 @@ import {AppComponent} from "./app.component";
 import {FeedComponent} from "./feed/feed.component";
 
 const routes: Routes = [
-  {path:'', component: FeedComponent}
+  {path:'', component: FeedComponent},
+  {path:'search/:searchTerm', component:FeedComponent}
 ];
 
 @NgModule({
