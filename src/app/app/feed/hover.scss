@@ -94,7 +94,7 @@
     background:white;
     color:black;
   }
-  &:hover .multi-button, .multi-button:focus-within { //Hover or a button inside is focused
+  &:hover .multi-button { //Hover or a button inside is focused
     width:10rem;
     height:10rem;
   }

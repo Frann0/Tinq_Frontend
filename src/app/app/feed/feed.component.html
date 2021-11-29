@@ -6,16 +6,16 @@
       <div class="card">
         <! Check om vi er admin eller ej, for at vise hvilke knapper på hover->
         <div class="multi-button" *ngIf="isAdmin; else user">
-        <button class="fas fa-heart"></button>
-        <button class="fas fa-comment"></button>
-        <button class="fas fa-user-slash"></button>
-        <button class="fas fa-trash"></button>
+        <button class="fas fa-heart"(click)="debug('like')"></button>
+        <button class="fas fa-comment"(click)="debug('comment')"></button>
+        <button class="fas fa-user-slash"(click)="debug('ban')"></button>
+        <button class="fas fa-trash"(click)="debug('delete')"></button>
       </div>
 
         <ng-template #user>
           <div class="multi-button">
-          <button class="fas fa-heart"></button>
-          <button class="fas fa-comment"></button>
+          <button class="fas fa-heart" (click)="debug('like')"></button>
+          <button class="fas fa-comment" (click)="debug('comment')"></button>
           </div>
         </ng-template>
 

@@ -3,6 +3,7 @@ import {Component, OnInit} from '@angular/core';
 import {TinqModel} from "../shared/tinqModel";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
+import {UserDto} from "../../Auth/shared/user.dto";
 
 
 @Component({
@@ -29,14 +30,14 @@ export class FeedComponent implements OnInit {
 
   constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {
     this.testTinqs = [
-    {username: "username", content: this.content, tags: this.tags},
-    {username: "username", content: this.content, tags: this.tags},
-    {username: "username", content: this.content, tags: ["test"]},
-    {username: "username", content: this.content, tags: this.tags},
-    {username: "username", content: this.content, tags: this.tags},
-    {username: "username", content: this.content, tags: this.tags},
-    {username: "username", content: this.content, tags: this.tags},
-    {username: "username", content: this.content, tags: this.tags},
+    {id: 1, username: "username", content: this.content, tags: this.tags},
+    {id: 2, username: "username", content: this.content, tags: this.tags},
+    {id: 3, username: "username", content: this.content, tags: ["test"]},
+    {id: 4, username: "username", content: this.content, tags: this.tags},
+    {id: 5, username: "username", content: this.content, tags: this.tags},
+    {id: 6, username: "username", content: this.content, tags: this.tags},
+    {id: 7, username: "username", content: this.content, tags: this.tags},
+    {id: 8, username: "username", content: this.content, tags: this.tags},
 
   ]}
 
@@ -54,4 +55,7 @@ export class FeedComponent implements OnInit {
 
   }
 
+  debug(string: string) {
+    console.log(string);
+  }
 }

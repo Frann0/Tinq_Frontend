@@ -12,15 +12,14 @@ import {Subscription} from "rxjs";
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-  loginForm: FormGroup;
+  loginForm = this.fb.group({
+    username: [''],
+    password: ['']
+  });
   unsub: Subscription | undefined;
 
-
   constructor(private fb : FormBuilder, private _auth: AuthService, private router: Router) {
-    this.loginForm = this.fb.group({
-      email: ['', [Validators.email, Validators.required]],
-      password: ['', [Validators.minLength(8), Validators.required]]
-    });
+
   }
 
   ngOnInit(): void {
@@ -35,12 +34,17 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
-
   login() {
     const loginDto = this.loginForm.value as LoginDto;
-    this._auth.login(loginDto).subscribe();
-    this.router.navigate(['/app']);
     console.log(loginDto);
+    this._auth.login(loginDto).subscribe(token =>{
+      if(token.message.toLowerCase() == "ok"){
+        console.log("Yas");
+        console.log(localStorage.getItem("jwtToken"));
+      }
+      console.log(token.jwt + " - " + token.message);
+    });
+
   }
 
 
