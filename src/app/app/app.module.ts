@@ -7,7 +7,10 @@ import { FeedComponent } from './feed/feed.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearchComponent } from './search/search.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
+import { DialogComponent } from './post/dialog/dialog.component';
+import {PostComponent} from "./post/post.component";
 
 
 @NgModule({
@@ -16,12 +19,17 @@ import {FormsModule} from "@angular/forms";
     FeedComponent,
     NavbarComponent,
     FooterComponent,
-    SearchComponent
+    SearchComponent,
+    PostComponent,
+    DialogComponent
+
   ],
   imports: [
     CommonModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule,
   ]
 })
 export class AppModule { }

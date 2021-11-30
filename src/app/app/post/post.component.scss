@@ -1,0 +1,16 @@
+.post{
+  cursor: pointer;
+  text-align: center;
+  margin-right: 30px;
+  background: black;
+  color: white;
+  border: solid black;
+  border-width: 1px 1px 1px 0px;
+  border-radius: 5px;
+  width: 180px;
+  height: 40px;
+}
+
+.post:hover{
+  background: #63a447;
+}

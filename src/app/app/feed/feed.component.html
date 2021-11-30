@@ -1,41 +1,43 @@
 <app-navbar></app-navbar>
 <div class="bodyContainer">
+  <div class="newpost">
+    <app-post></app-post>
+  </div>
   <div class="feedContainer">
-
     <div class="tinqWrapper" *ngFor="let tinq of filteredTinqs">
       <div class="card">
         <! Check om vi er admin eller ej, for at vise hvilke knapper på hover->
         <div class="multi-button" *ngIf="isAdmin; else user">
-        <button class="fas fa-heart"(click)="debug('like')"></button>
-        <button class="fas fa-comment"(click)="debug('comment')"></button>
-        <button class="fas fa-user-slash"(click)="debug('ban')"></button>
-        <button class="fas fa-trash"(click)="debug('delete')"></button>
-      </div>
+          <button class="fas fa-heart" (click)="debug('like')"></button>
+          <button class="fas fa-comment" (click)="debug('comment')"></button>
+          <button class="fas fa-user-slash" (click)="debug('ban')"></button>
+          <button class="fas fa-trash" (click)="debug('delete')"></button>
+        </div>
 
         <ng-template #user>
           <div class="multi-button">
-          <button class="fas fa-heart" (click)="debug('like')"></button>
-          <button class="fas fa-comment" (click)="debug('comment')"></button>
+            <button class="fas fa-heart" (click)="debug('like')"></button>
+            <button class="fas fa-comment" (click)="debug('comment')"></button>
           </div>
         </ng-template>
 
-      <div class="container">
-        <div class="byContainer">
-        <div class="byWrapper">
-          <p class="by">Thought by: {{tinq.username}}</p>
-        </div>
-      </div>
-      <div class="contentContainer">
-        <p>{{tinq.content}}</p>
-      </div>
+        <div class="container">
+          <div class="byContainer">
+            <div class="byWrapper">
+              <p class="by">Thought by: {{tinq.username}}</p>
+            </div>
+          </div>
+          <div class="contentContainer">
+            <p>{{tinq.content}}</p>
+          </div>
 
-      <div class="footerContainer">
-        <div class="tagWrapper">
-          <p>{{tinq.tags}}</p>
+          <div class="footerContainer">
+            <div class="tagWrapper">
+              <p>{{tinq.tags}}</p>
+            </div>
+          </div>
         </div>
       </div>
-      </div>
-    </div>
     </div>
   </div>
 </div>

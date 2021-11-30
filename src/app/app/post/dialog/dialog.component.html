@@ -1,0 +1,43 @@
+<div class="modalContainer">
+  <div class="modalWrapper">
+    <div class="titleContainer">
+      <h1 class="title">New Tinq?</h1>
+    </div>
+    <div class="bodyContainer" matDialogContent>
+      <form [formGroup]="postForm" (ngSubmit)="post()">
+        <div class="newTinqContainer">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="title" placeholder="Title" formControlName="title">
+            <label for="title">Title</label>
+          </div>
+          <div class="form-floating mb-3">
+        <textarea class="textarea form-control" id="content" placeholder="Thoughts" rows="9" maxlength="{{maxLength}}"
+                  formControlName="content"></textarea>
+            <label for="content">Thoughts</label>
+            <div id="the-count">
+              <span id="current">0/{{maxLength}}</span>
+            </div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="tags" placeholder="tags" formControlName="tags">
+            <label for="tags">Tags</label>
+            <div class="form-helper">Separate tags with ','</div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="FooterWrapper">
+      <div mat-dialog-actions>
+        <ul class="leftbuttonsContainer navbar-nav nav-flex-icons">
+          <div class="btn-group shadow-none " role="group" aria-label="Basic example">
+              <button type="button" class="btn shadow-none cancel"> <i class="fas fa-window-close"></i> Cancel</button>
+              <button type="button" class="btn shadow-none post " ><i class="fas fa-feather-alt"></i> Post</button>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
