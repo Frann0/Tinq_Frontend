@@ -1,8 +1,8 @@
 .bodytestwrapper{
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: auto 800px;
   align-items: start;
-  grid-auto-rows: auto;
+  grid-template-rows: 600px;
   background: black;
 }
 
@@ -11,10 +11,8 @@
 }
 
 .title{
-  margin-top: 10%;
-  margin-left: 10%;
-  width: 50%;
-  height: 500px;
+  margin-top: 15%;
+  margin-left: 15%;
   background: black;
 }
 
@@ -90,6 +88,8 @@ h1{
 
 .handContainer{
   align-self: stretch;
+  width: 500px;
+  max-width: 500px;
 }
 
 .hand{
