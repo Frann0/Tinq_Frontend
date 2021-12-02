@@ -717,3 +717,4 @@ Thumbs.db
 .angular/cache/angular-webpack/9cc1bf4eb4e270ae1eb6803be67f96cd4aadd323/2.pack
 .angular/cache/angular-webpack/9cc1bf4eb4e270ae1eb6803be67f96cd4aadd323/1.pack
 .angular/cache/angular-webpack/9cc1bf4eb4e270ae1eb6803be67f96cd4aadd323/0.pack
+*.pack_
