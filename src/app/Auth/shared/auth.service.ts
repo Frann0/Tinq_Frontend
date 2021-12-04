@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {LoginDto} from "./login.dto";
 import {TokenDto} from "./token.dto";
-import {BehaviorSubject, Observable, tap} from "rxjs";
+import {BehaviorSubject, Observable, of, take, tap} from "rxjs";
 import {UserDto} from "./user.dto";
 import {environment} from "../../../environments/environment";
 
@@ -13,17 +13,16 @@ const jwtToken = "jwtToken";
 })
 export class AuthService {
   isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
-
   constructor(private _http: HttpClient) { }
 
   login(loginDto: LoginDto): Observable<TokenDto> {
     return this._http
-      .post<TokenDto>(environment.api + '/api/Auth/Login', loginDto)
+      .post<TokenDto>(environment.api + '/api/auth/login', loginDto)
       .pipe(
         tap(token => {
-          if(token && token.jwt) {
-            localStorage.setItem(jwtToken, token.jwt);
-            this.isLoggedIn$.next(token.jwt);
+          if(token && token.token) {
+            localStorage.setItem(jwtToken, token.token);
+            this.isLoggedIn$.next(token.token);
           } else {
             this.logout();
           }
@@ -32,15 +31,17 @@ export class AuthService {
   }
 
   getToken(): string | null {
-    return localStorage.getItem('jwtToken');
+    return localStorage.getItem(jwtToken);
+  }
+
+  logout(): Observable<boolean> {
+    localStorage.removeItem(jwtToken);
+    this.isLoggedIn$.next(null);
+    return of(true).pipe(take(1));
   }
 
   register(userdto: UserDto): void {
     this._http.post(environment.api + '/api/auth/register', userdto).subscribe();
   }
-
-  logout(){
-    localStorage.removeItem('jwtToken');
-    this.isLoggedIn$.next(null);
-  }
 }
+

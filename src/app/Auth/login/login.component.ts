@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   });
   unsub: Subscription | undefined;
 
-  constructor(private fb : FormBuilder, private _auth: AuthService, private router: Router) {
+  constructor(private fb : FormBuilder, private _auth: AuthService, private _router: Router) {
 
   }
 
@@ -36,16 +36,11 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   login() {
     const loginDto = this.loginForm.value as LoginDto;
-    console.log(loginDto);
-    this._auth.login(loginDto).subscribe(token =>{
-      if(token.message.toLowerCase() == "ok"){
-        console.log("Yas");
-        console.log(localStorage.getItem("jwtToken"));
-      }
-      console.log(token.jwt + " - " + token.message);
-    });
-
+    this._auth.login(loginDto)
+      .subscribe(token => {
+        if(token && token.token) {
+          this._router.navigateByUrl('app')
+        }
+      });
   }
-
-
 }
