@@ -1,17 +1,20 @@
 import {TinqDto} from "./tinqDto";
 
 export class TinqModel implements TinqDto{
-  public id: number | undefined;
-  public content: string;
-  public tags: string[];
-  public username: string;
+  public id: number;
+  public body: string;
+  public title: string;
+  public userId: number;
 
-  constructor(id: number, username: string, content: string, tags: string[]) {
+  constructor(id: number, userId: number, title: string, body: string) {
     this.id = id;
-    this.username = username;
-    this.content = content;
-    this.tags = tags;
+    this.userId = userId;
+    this.title = title;
+    this.body = body;
   }
+
+
+
 
 
 }

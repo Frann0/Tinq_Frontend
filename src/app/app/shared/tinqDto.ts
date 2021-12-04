@@ -1,6 +1,6 @@
 export interface TinqDto {
-  id: number | undefined;
-  username: string;
-  content: string;
-  tags: string[];
+  id: number;
+  title: string;
+  body: string;
+  userId: number;
 }

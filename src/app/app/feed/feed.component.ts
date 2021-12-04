@@ -4,6 +4,11 @@ import {TinqModel} from "../shared/tinqModel";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {UserDto} from "../../Auth/shared/user.dto";
+import {TinqDto} from "../shared/tinqDto";
+import {PostsService} from "../shared/posts.service";
+import {HttpClient} from "@angular/common/http";
+import { environment } from 'src/environments/environment.prod';
+import { catchError, map, Observable } from 'rxjs';
 
 
 @Component({
@@ -12,45 +17,38 @@ import {UserDto} from "../../Auth/shared/user.dto";
   styleUrls: ['./feed.component.scss']
 })
 export class FeedComponent implements OnInit {
-  username: string = "test";
-  testTinqs: TinqModel[];
-  filteredTinqs: TinqModel[] | undefined;
-
-  content: string = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam tortor, varius ac tempor sed, viverra at orci. Ut in felis mauris. Phasellus ac ullamcorper lorem. Praesent consectetur lorem leo, eu aliquam lorem elementum sit amet. Morbi vitae ultricies massa, at pretium lacus. Donec vitae consectetur diam. Sed sed sodales sapien. Pellentesque pellentesque euismod risus, et egestas nibh euismod ac. Quisque pellentesque laoreet purus, et fermentum eros ornare eu. Nulla eu placerat enim. Integer malesuada velit sit amet dolor rutrum aliquam. Nullam sit amet placerat lectus. Morbi id rhoncus libero.\n" +
-    "\n" +
-    "Quisque efficitur nulla leo, sed pulvinar lacus sollicitudin ut. Proin dignissim luctus consectetur. Etiam commodo libero lacus, vitae tristique urna auctor a. Praesent ac urna elit. Aenean mattis sapien nec lorem dictum hendrerit. Mauris eu massa sed tellus venenatis sollicitudin eu ac velit. Donec maximus volutpat congue.";
-
-  tags: string[] = ["#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum","#Lorem", "#ipsum"]
-
-  tinq: TinqModel | undefined;
+  filteredTinqs: Observable<TinqModel[]> | undefined;
+  posts$: Observable<TinqModel[]> | undefined;
+  error: any;
 
   public isAdmin: boolean = true;
 
   public element: SafeHtml | undefined;
 
-  constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {
-    this.testTinqs = [
-    {id: 1, username: "username", content: this.content, tags: this.tags},
-    {id: 2, username: "username", content: this.content, tags: this.tags},
-    {id: 3, username: "username", content: this.content, tags: ["test"]},
-    {id: 4, username: "username", content: this.content, tags: this.tags},
-    {id: 5, username: "username", content: this.content, tags: this.tags},
-    {id: 6, username: "username", content: this.content, tags: this.tags},
-    {id: 7, username: "username", content: this.content, tags: this.tags},
-    {id: 8, username: "username", content: this.content, tags: this.tags},
+  constructor(private _postsService : PostsService, private sanitizer: DomSanitizer, private route: ActivatedRoute, private _http: HttpClient) {
 
-  ]}
-
+  }
 
   ngOnInit(): void {
 
-    this.route.params.subscribe(params => {
+    this.posts$ = this._postsService.getAll()
+      .pipe(
+        catchError(err => {
+          this.error = err;
+          throw err;
+        })
+      );
+
+    this.route.params.subscribe(params =>{
       if (params['searchTerm']){
-        this.filteredTinqs = this.testTinqs.filter(tinq => tinq.tags.toString().toLowerCase().includes(params['searchTerm'].toLowerCase()))
-      } else{
-        this.filteredTinqs = this.testTinqs;
+        this.filteredTinqs = this.posts$?.pipe(
+            map( results => results.filter(r => r.title.toLowerCase().includes(params['searchTerm'].toLowerCase())) )
+          );
+      } else {
+        this.filteredTinqs = this.posts$;
       }
-    });
+    })
+
     document.body.style.backgroundColor = "white";
 
   }
