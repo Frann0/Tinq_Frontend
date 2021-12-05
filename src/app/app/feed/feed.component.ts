@@ -2,7 +2,7 @@
 import {Component, OnInit} from '@angular/core';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
-import {UserDto} from "../../Auth/shared/user.dto";
+import {RegisterUserDto} from "../../Auth/shared/registerUser.dto";
 import {TinqDto} from "../shared/tinqDto";
 import {PostsService} from "../shared/posts.service";
 import {HttpClient} from "@angular/common/http";

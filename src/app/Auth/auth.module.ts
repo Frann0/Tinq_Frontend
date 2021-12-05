@@ -8,10 +8,11 @@ import {NgModule} from "@angular/core";
 import { LoginComponent } from './login/login.component';
 import {AppModule} from "../app.module";
 import {SharedModule} from "../shared/shared.module";
+import { SignUpSuccessComponent } from './sign-up/sign-up-success/sign-up-success.component';
 
 
 @NgModule({
-  declarations: [SignUpComponent, LoginComponent],
+  declarations: [SignUpComponent, LoginComponent, SignUpSuccessComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
