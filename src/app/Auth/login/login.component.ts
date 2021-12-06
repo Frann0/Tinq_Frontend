@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../shared/auth.service";
 import {Router} from "@angular/router";
-import {UserDto} from "../shared/user.dto";
+import {RegisterUserDto} from "../shared/registerUser.dto";
 import {LoginDto} from "../shared/login.dto";
 import {Subscription} from "rxjs";
 

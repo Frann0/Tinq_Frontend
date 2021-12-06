@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {LoginDto} from "./login.dto";
 import {TokenDto} from "./token.dto";
-import {BehaviorSubject, Observable, of, take, tap} from "rxjs";
-import {UserDto} from "./user.dto";
+import {BehaviorSubject, Observable, of, Subscription, take, tap} from "rxjs";
+import {RegisterUserDto} from "./registerUser.dto";
 import {environment} from "../../../environments/environment";
 
 const jwtToken = "jwtToken";
@@ -40,8 +40,8 @@ export class AuthService {
     return of(true).pipe(take(1));
   }
 
-  register(userdto: UserDto): void {
-    this._http.post(environment.api + '/api/auth/register', userdto).subscribe();
+  register(userdto: RegisterUserDto): void {
+    this._http.post(environment.api + '/api/auth/register',userdto).subscribe();
   }
 }
 

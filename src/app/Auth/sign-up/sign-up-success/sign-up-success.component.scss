@@ -1,11 +1,15 @@
 .SignupContainer{
   background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
 }
 
 .SignupWrapper{
   border-radius: 20px;
   width: 500px;
-  height: 680px;
+  height: auto;
   margin: 25px auto;
   background: white;
   color: black;
@@ -24,7 +28,7 @@
   font-weight: bold;
   padding-top: 20px;
   text-align: center;
-  color: black;
+  color: #63a447;
 }
 
 .BodyWrapper{
@@ -37,26 +41,12 @@
 .introText{
   width:60%;
   text-align: center;
-  color: darkgray;
+  color: Black;
   margin: 15px auto;
 }
 
 .introText p{
-  font-size: 12px;
-}
-
-.form-floating{
-  width: 60%;
-  margin: 20px auto 5px;
-}
-
-.form-check{
-  width: 60%;
-  margin: 20px auto 20px;
-}
-
-.form-check-label{
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .FooterWrapper{
@@ -67,41 +57,23 @@
 }
 
 .leftbuttonsContainer{
-  align-items: end;
+  align-items: center;
   margin-top: 20px;
 }
 
 .login{
   cursor: pointer;
   text-align: center;
-  margin-right: 30px;
   background: black;
   color: white;
-  border: solid black;
-  border-width: 1px 1px 1px 0px;
-  border-radius: 0px 5px 5px 0px;
-  width: 150px;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 400px;
   height: 40px;
 }
 
 .login:hover{
   background: #63a447;
-}
-
-.signup{
-  cursor: pointer;
-  text-align: center;
-  background: white;
-  color: black;
-  border: solid black;
-  border-width: 1px 0px 1px 1px;
-  border-radius: 5px 0px 0px 5px;
-  width: 150px;
-  height: 40px;
-}
-.signup:hover{
-  color: white;
-  background: #C82647;
 }
 
 .form-check-label a {
