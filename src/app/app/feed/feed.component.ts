@@ -1,4 +1,3 @@
-
 import {Component, OnInit} from '@angular/core';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
@@ -10,13 +9,12 @@ import { environment } from 'src/environments/environment.prod';
 import { catchError, map, Observable } from 'rxjs';
 import { TinqModel } from '../shared/tinqModel';
 
-
 @Component({
   selector: 'app-feed',
   templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.scss']
+  styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
   filteredTinqs: Observable<TinqModel[]> | undefined;
   posts$: Observable<TinqModel[]> | undefined;
   error: any;
@@ -25,32 +23,43 @@ export class FeedComponent implements OnInit {
 
   public element: SafeHtml | undefined;
 
-  constructor(private _postsService : PostsService, private sanitizer: DomSanitizer, private route: ActivatedRoute, private _http: HttpClient) {
-
+  constructor(
+    private _postsService: PostsService,
+    private sanitizer: DomSanitizer,
+    private route: ActivatedRoute,
+    private _http: HttpClient
+  ) {}
+  
+  ngOnChanges(changes: SimpleChanges): void {
+    this.posts$ = this._postsService.posts$;
   }
 
   ngOnInit(): void {
+    this._postsService.getAll();
 
-    this.posts$ = this._postsService.getAll()
-      .pipe(
-        catchError(err => {
-          this.error = err;
-          throw err;
-        })
-      );
-
-    this.route.params.subscribe(params =>{
-      if (params['searchTerm']){
+    this.route.params.subscribe((params) => {
+      if (params['searchTerm']) {
         this.filteredTinqs = this.posts$?.pipe(
-            map( results => results.filter(r => r.title.toLowerCase().includes(params['searchTerm'].toLowerCase())) )
-          );
+          map((results) =>
+            results.filter((r) =>
+              r.title.toLowerCase().includes(params['searchTerm'].toLowerCase())
+            )
+          )
+        );
       } else {
         this.filteredTinqs = this.posts$;
       }
-    })
+    });
 
-    document.body.style.backgroundColor = "white";
+    document.body.style.backgroundColor = 'white';
+  }
 
+  //TODO need some way to make it get id
+  public deletePost() {
+    var id = 2;
+    var tinqDto: TinqDto = new TinqModel();
+    tinqDto.id = id;
+    this._postsService.deletePost(tinqDto);
   }
 
   debug(string: string) {
