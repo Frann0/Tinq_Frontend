@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../Auth/shared/auth.service";
 import {Router} from "@angular/router";
+import {UserServiceService} from "../../shared/user-service.service";
 
 
 @Component({
@@ -9,11 +10,12 @@ import {Router} from "@angular/router";
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-    username: string = "User123";
+    username: string | undefined = "User123";
 
-  constructor(private _auth: AuthService, private _router: Router) { }
+  constructor(private _auth: AuthService, private _router: Router, private _user: UserServiceService) { }
 
   ngOnInit(): void {
+    this.username = this._user._user?.username;
   }
   logout(): void{
     this._auth.logout();
