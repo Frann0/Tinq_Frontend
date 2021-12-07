@@ -14,7 +14,7 @@ import { TinqModel } from '../shared/tinqModel';
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent implements OnInit, OnChanges {
+export class FeedComponent implements OnInit {
   filteredTinqs: Observable<TinqModel[]> | undefined;
   posts$: Observable<TinqModel[]> | undefined;
   error: any;
@@ -29,13 +29,10 @@ export class FeedComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     private _http: HttpClient
   ) {}
-  
-  ngOnChanges(changes: SimpleChanges): void {
-    this.posts$ = this._postsService.posts$;
-  }
+
 
   ngOnInit(): void {
-    this._postsService.getAll();
+    this.posts$=this._postsService.getAll();
 
     this.route.params.subscribe((params) => {
       if (params['searchTerm']) {
