@@ -5,6 +5,7 @@ import {TokenDto} from "./token.dto";
 import {BehaviorSubject, Observable, of, Subscription, take, tap} from "rxjs";
 import {RegisterUserDto} from "./registerUser.dto";
 import {environment} from "../../../environments/environment";
+import {LoggedInUserDto} from "./loggedInUser.dto";
 
 const jwtToken = "jwtToken";
 
@@ -13,16 +14,18 @@ const jwtToken = "jwtToken";
 })
 export class AuthService {
   isLoggedIn$ = new BehaviorSubject<string | null>(this.getToken());
+  LoggedInUser: LoggedInUserDto | undefined;
   constructor(private _http: HttpClient) { }
 
-  login(loginDto: LoginDto): Observable<TokenDto> {
+  login(loginDto: LoginDto): Observable<LoggedInUserDto> {
     return this._http
-      .post<TokenDto>(environment.api + '/api/auth/login', loginDto)
+      .post<LoggedInUserDto>(environment.api + '/api/auth/login', loginDto)
       .pipe(
         tap(token => {
-          if(token && token.token) {
-            localStorage.setItem(jwtToken, token.token);
-            this.isLoggedIn$.next(token.token);
+          if(token.token && token.token.token) {
+            localStorage.setItem(jwtToken, token.token.token);
+            this.isLoggedIn$.next(token.token.token);
+            this.LoggedInUser = token as LoggedInUserDto;
           } else {
             this.logout();
           }

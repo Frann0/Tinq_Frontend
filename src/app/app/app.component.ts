@@ -8,7 +8,7 @@ import {AuthService} from "../Auth/shared/auth.service";
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _auth: AuthService) { }
 
   ngOnInit(): void {
   }

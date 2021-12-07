@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {RegisterUserDto} from "../shared/registerUser.dto";
 import {LoginDto} from "../shared/login.dto";
 import {Subscription} from "rxjs";
+import {UserServiceService} from "../../shared/user-service.service";
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,12 @@ import {Subscription} from "rxjs";
 })
 export class LoginComponent implements OnInit, OnDestroy {
   loginForm = this.fb.group({
-    username: [''],
+    email: [''],
     password: ['']
   });
   unsub: Subscription | undefined;
 
-  constructor(private fb : FormBuilder, private _auth: AuthService, private _router: Router) {
+  constructor(private fb : FormBuilder, private _auth: AuthService, private _router: Router, private _userService: UserServiceService) {
 
   }
 
@@ -41,7 +42,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     const loginDto = this.loginForm.value as LoginDto;
     this._auth.login(loginDto)
       .subscribe(token => {
-        if(token && token.token) {
+        if(token.token && token.token.token) {
+          this._userService._user=token;
           this._router.navigateByUrl('app')
         }
       });

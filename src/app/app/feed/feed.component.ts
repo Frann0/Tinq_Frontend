@@ -8,6 +8,9 @@ import {HttpClient} from "@angular/common/http";
 import { environment } from 'src/environments/environment.prod';
 import { catchError, map, Observable } from 'rxjs';
 import { TinqModel } from '../shared/tinqModel';
+import {AuthService} from "../../Auth/shared/auth.service";
+import {UserServiceService} from "../../shared/user-service.service";
+import {LoggedInUserDto} from "../../Auth/shared/loggedInUser.dto";
 
 @Component({
   selector: 'app-feed',
@@ -19,7 +22,8 @@ export class FeedComponent implements OnInit, OnChanges {
   posts$: Observable<TinqModel[]> | undefined;
   error: any;
 
-  public isAdmin: boolean = true;
+  loggedInUser: LoggedInUserDto | undefined;
+  public isAdmin: boolean = false;
 
   public element: SafeHtml | undefined;
 
@@ -27,7 +31,8 @@ export class FeedComponent implements OnInit, OnChanges {
     private _postsService: PostsService,
     private sanitizer: DomSanitizer,
     private route: ActivatedRoute,
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _user: UserServiceService
   ) {}
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -49,6 +54,10 @@ export class FeedComponent implements OnInit, OnChanges {
       } else {
         this.filteredTinqs = this.posts$;
       }
+    });
+    this.loggedInUser = this._user._user;
+    this.loggedInUser?.permissions.forEach((perm) =>{
+      perm.id== 2 && perm.name == "Admin" ? this.isAdmin = true : this.isAdmin = false;
     });
 
     document.body.style.backgroundColor = 'white';
