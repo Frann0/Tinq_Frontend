@@ -5,7 +5,7 @@
 .SignupWrapper{
   border-radius: 20px;
   width: 500px;
-  height: 680px;
+  height: auto;
   margin: 25px auto;
   background: white;
   color: black;
@@ -111,5 +111,11 @@
 
 .form-check-label a:hover {
   color: gray;
+}
+
+.failed{
+  width: 60%;
+  margin: 20px auto 20px;
+  color: red;
 }
 

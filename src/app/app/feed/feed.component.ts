@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {RegisterUserDto} from "../../Auth/shared/registerUser.dto";
@@ -29,7 +29,7 @@ export class FeedComponent implements OnInit, OnChanges {
     private route: ActivatedRoute,
     private _http: HttpClient
   ) {}
-  
+
   ngOnChanges(changes: SimpleChanges): void {
     this.posts$ = this._postsService.posts$;
   }

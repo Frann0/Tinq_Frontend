@@ -40,8 +40,9 @@ export class AuthService {
     return of(true).pipe(take(1));
   }
 
-  register(userdto: RegisterUserDto): void {
-    this._http.post(environment.api + '/api/auth/register',userdto).subscribe();
+  register(userdto: RegisterUserDto): Observable<boolean> {
+    return this._http
+      .post<boolean>(environment.api + '/api/auth/register', userdto);
   }
 }
 
