@@ -24,6 +24,7 @@ export class AuthService {
         tap(token => {
           if(token.token && token.token.token) {
             localStorage.setItem(jwtToken, token.token.token);
+            localStorage.setItem("user", JSON.stringify(token));
             this.isLoggedIn$.next(token.token.token);
             this.LoggedInUser = token as LoggedInUserDto;
           } else {
@@ -39,6 +40,7 @@ export class AuthService {
 
   logout(): Observable<boolean> {
     localStorage.removeItem(jwtToken);
+    localStorage.removeItem("user");
     this.isLoggedIn$.next(null);
     return of(true).pipe(take(1));
   }

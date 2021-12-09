@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {RegisterUserDto} from "../../Auth/shared/registerUser.dto";
@@ -20,6 +20,8 @@ export class FeedComponent implements OnInit {
   filteredTinqs: Observable<TinqModel[]> | undefined;
   posts$: Observable<TinqModel[]> | undefined;
   error: any;
+
+  public str = "";
 
   loggedInUser: LoggedInUserDto | undefined;
   public isAdmin: boolean = false;
@@ -43,7 +45,7 @@ export class FeedComponent implements OnInit {
         this.filteredTinqs = this.posts$?.pipe(
           map((results) =>
             results.filter((r) =>
-              r.title.toLowerCase().includes(params['searchTerm'].toLowerCase())
+                r.tags[0].text.toLowerCase().includes(params['searchTerm'].toLowerCase()) // VIRKER KUN PÅ INDEX 0 SKAL REFFACCES
             )
           )
         );
@@ -51,10 +53,12 @@ export class FeedComponent implements OnInit {
         this.filteredTinqs = this.posts$;
       }
     });
-    this.loggedInUser = this._user._user;
+    this.loggedInUser = JSON.parse(<string>localStorage.getItem("user"));
     this.loggedInUser?.permissions.forEach((perm) =>{
       perm.id== 2 && perm.name == "Admin" ? this.isAdmin = true : this.isAdmin = false;
     });
+
+    console.log(this.loggedInUser)
     document.body.style.backgroundColor = 'white';
   }
 
