@@ -5,7 +5,7 @@
   </div>
   <div class="feedContainer">
     <div *ngIf="filteredTinqs | async as posts else loading">
-      <div *ngIf="posts && posts.length > 0 else noPosts">
+      <div  *ngIf="posts && posts.length > 0 else noPosts">
         <div class="tinqWrapper" *ngFor="let tinq of posts">
           <div class="card">
             <! Check om vi er admin eller ej, for at vise hvilke knapper på hover->
@@ -35,7 +35,7 @@
 
               <div class="footerContainer">
                 <div class="tagWrapper">
-                  <p>{{tinq.userId}}</p>
+                  <p *ngFor="let t of tinq.tags">{{t.text + ","}}</p>
                 </div>
               </div>
             </div>
@@ -47,7 +47,7 @@
 </div>
 
 <ng-template #noPosts>
-  <h5>No Posts found</h5>
+  <h3 class="noPosts">No Posts found</h3>
 </ng-template>
 
 <ng-template #loading>

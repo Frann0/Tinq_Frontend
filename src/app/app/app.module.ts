@@ -11,6 +11,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatDialogModule} from "@angular/material/dialog";
 import { DialogComponent } from './post/dialog/dialog.component';
 import {PostComponent} from "./post/post.component";
+import { UserComponent } from './user/user.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import {PostComponent} from "./post/post.component";
     FooterComponent,
     SearchComponent,
     PostComponent,
-    DialogComponent
+    DialogComponent,
+    UserComponent,
+    ProfileComponent
 
   ],
   imports: [

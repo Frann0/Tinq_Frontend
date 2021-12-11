@@ -4,10 +4,12 @@ import {LoginComponent} from "../Auth/login/login.component";
 import {AppComponent} from "./app.component";
 import {FeedComponent} from "./feed/feed.component";
 import {AuthGuard} from "../Auth/auth.guard";
+import {UserComponent} from "./user/user.component";
 
 const routes: Routes = [
   {path:'', component: FeedComponent, canActivate: [AuthGuard]},
-  {path:'search/:searchTerm', component:FeedComponent, canActivate: [AuthGuard]}
+  {path:'search/:searchTerm', component:FeedComponent, canActivate: [AuthGuard]},
+  {path:'user/profile', component:UserComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

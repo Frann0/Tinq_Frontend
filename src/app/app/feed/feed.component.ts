@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {RegisterUserDto} from "../../Auth/shared/registerUser.dto";
@@ -21,6 +21,8 @@ export class FeedComponent implements OnInit {
   posts$: Observable<TinqModel[]> | undefined;
   error: any;
 
+  public str = "";
+
   loggedInUser: LoggedInUserDto | undefined;
   public isAdmin: boolean = false;
 
@@ -40,21 +42,17 @@ export class FeedComponent implements OnInit {
 
     this.route.params.subscribe((params) => {
       if (params['searchTerm']) {
-        this.filteredTinqs = this.posts$?.pipe(
-          map((results) =>
-            results.filter((r) =>
-              r.title.toLowerCase().includes(params['searchTerm'].toLowerCase())
-            )
-          )
-        );
+        this.filteredTinqs = this._postsService.getPostsBySearchQuery(params['searchTerm']);
       } else {
         this.filteredTinqs = this.posts$;
       }
     });
-    this.loggedInUser = this._user._user;
+    this.loggedInUser = JSON.parse(<string>localStorage.getItem("user"));
     this.loggedInUser?.permissions.forEach((perm) =>{
       perm.id== 2 && perm.name == "Admin" ? this.isAdmin = true : this.isAdmin = false;
     });
+
+    console.log(this.loggedInUser)
     document.body.style.backgroundColor = 'white';
   }
 
