@@ -16,7 +16,7 @@ export class PostsService {
     return this.posts$;
   }
 
-  getPostsByUserID(userId: number) : Observable<TinqDto[]>{
+  getPostsByUserID(userId: number | undefined) : Observable<TinqDto[]>{
     return this._http.get<TinqDto[]>(environment.api + '/posts/'+ userId);
   }
 
