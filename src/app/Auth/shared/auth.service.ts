@@ -6,6 +6,7 @@ import {BehaviorSubject, Observable, of, Subscription, take, tap} from "rxjs";
 import {RegisterUserDto} from "./registerUser.dto";
 import {environment} from "../../../environments/environment";
 import {LoggedInUserDto} from "./loggedInUser.dto";
+import {TableUserDto} from "./tableUser.dto";
 
 const jwtToken = "jwtToken";
 
@@ -48,6 +49,10 @@ export class AuthService {
   register(userdto: RegisterUserDto): Observable<boolean> {
     return this._http
       .post<boolean>(environment.api + '/api/auth/register', userdto);
+  }
+
+  getAllUsers() {
+    return this._http.get<TableUserDto[]>(environment.api + '/api/Auth/allusers');
   }
 }
 

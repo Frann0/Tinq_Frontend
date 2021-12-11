@@ -13,7 +13,8 @@ import { DialogComponent } from './post/dialog/dialog.component';
 import {PostComponent} from "./post/post.component";
 import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
-
+import { AdminComponent } from './user/admin/admin.component';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProfileComponent } from './user/profile/profile.component';
     PostComponent,
     DialogComponent,
     UserComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdminComponent
 
   ],
   imports: [
@@ -34,6 +36,7 @@ import { ProfileComponent } from './user/profile/profile.component';
     FormsModule,
     MatDialogModule,
     ReactiveFormsModule,
+    NgbModule,
   ]
 })
 export class AppModule { }
