@@ -42,13 +42,7 @@ export class FeedComponent implements OnInit {
 
     this.route.params.subscribe((params) => {
       if (params['searchTerm']) {
-        this.filteredTinqs = this.posts$?.pipe(
-          map((results) =>
-            results.filter((r) =>
-                r.tags[0].text.toLowerCase().includes(params['searchTerm'].toLowerCase()) // VIRKER KUN PÅ INDEX 0 SKAL REFFACCES
-            )
-          )
-        );
+        this.filteredTinqs = this._postsService.getPostsBySearchQuery(params['searchTerm']);
       } else {
         this.filteredTinqs = this.posts$;
       }

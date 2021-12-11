@@ -16,6 +16,14 @@ export class PostsService {
     return this.posts$;
   }
 
+  getPostsByUserID(userId: number) : Observable<TinqDto[]>{
+    return this._http.get<TinqDto[]>(environment.api + '/posts/'+ userId);
+  }
+
+  getPostsBySearchQuery(query: string) : Observable<TinqDto[]>{
+    return this._http.get<TinqDto[]>(environment.api + '/search/'+ query);
+  }
+
   createPost(tinqDto: TinqDto) {
     this._http
       .post<TinqDto>(
@@ -61,5 +69,9 @@ export class PostsService {
         (err) => console.log(err)
       );
       this.getAll();
+  }
+
+  deletePostTest(id: number){
+    this._http.delete<TinqDto>(environment.api + '/del/'+id);
   }
 }
