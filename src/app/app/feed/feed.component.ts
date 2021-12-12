@@ -5,7 +5,6 @@ import {RegisterUserDto} from "../../Auth/shared/registerUser.dto";
 import {TinqDto} from "../shared/tinqDto";
 import {PostsService} from "../shared/posts.service";
 import {HttpClient} from "@angular/common/http";
-import { environment } from 'src/environments/environment.prod';
 import { catchError, map, Observable } from 'rxjs';
 import { TinqModel } from '../shared/tinqModel';
 import {LoggedInUserDto} from "../../Auth/shared/loggedInUser.dto";
