@@ -24,11 +24,11 @@ export class PostsService {
     return this._http.get<TinqDto[]>(environment.api + '/search/'+ query);
   }
 
-  createPost(tinqDto: TinqDto) {
+  createPost(title: string, body: string, tags: string, userId: number) {
     this._http
       .post<TinqDto>(
         environment.api +
-          `/Post?titleText=${encodeURI(tinqDto.title)}&bodyText=${encodeURI(tinqDto.body)}&userId=${tinqDto.userId}`,
+          `/Post?titleText=${title}&bodyText=${body}&userId=${userId}&tags=${tags}`,
         null
       )
       .subscribe(

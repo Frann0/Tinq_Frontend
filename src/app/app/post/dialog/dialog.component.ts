@@ -14,19 +14,25 @@ export class DialogComponent implements OnInit {
   postForm = this.fb.group({
     title: [''],
     body: [''],
-    tags: [''],
-    userId: [1]
+    tags: ['']
   });
 
   constructor(private fb: FormBuilder, private _postService: PostsService) {}
 
   createPost() {
-    let postDto = this.postForm.value as TinqDto;
-    this._postService.createPost(postDto);
+    // @ts-ignore
+    let title = this.postForm.get('title').value;
+    // @ts-ignore
+    let body = this.postForm.get('body').value;
+    // @ts-ignore
+    let tags = this.postForm.get('tags').value;
+    let userId = JSON.parse(<string>localStorage.getItem("user")).id;
+    this._postService.createPost(title, body, tags, userId)
+    window.location.reload();
   }
 
   ngOnInit(): void {
-    const characterCount = document.getElementById('body');
+    const characterCount = document.getElementById('content');
     const counter = document.getElementById("current");
 
     // @ts-ignore

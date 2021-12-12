@@ -23,7 +23,8 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.loggedInUser = JSON.parse(<string>localStorage.getItem("user"));
     this.Username = this.loggedInUser?.username;
-    this.posts$=this._postsService.getPostsByUserID(2);
+    // @ts-ignore
+    this.posts$=this._postsService.getPostsByUserID(this.loggedInUser.id);
   }
 
 
