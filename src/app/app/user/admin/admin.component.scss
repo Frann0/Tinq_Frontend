@@ -1,0 +1,70 @@
+.editUserheader{
+  margin-top: 10px;
+  font-family: Roboto;
+  font-weight: lighter;
+  font-size: 24px;
+  color: black;
+}
+
+.header{
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerContainer{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.3);
+}
+
+.wrapper{
+  overflow-y: scroll;
+  height:calc(100vh - 160px);
+  width: 100%;
+}
+.tableTest{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.edit{
+  cursor: pointer;
+  text-align: center;
+  margin-right: 30px;
+  background: black;
+  color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 75px;
+  height: 30px;
+}
+
+.edit:hover{
+  background: #63a447;
+}
+
+.ban{
+  cursor: pointer;
+  text-align: center;
+  background: white;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 75px;
+  height: 30px;
+}
+.ban:hover{
+  color: white;
+  background: #C82647;
+}
+
+.tableRow:hover{
+  background: rgba(0,0,0,0.1);
+}

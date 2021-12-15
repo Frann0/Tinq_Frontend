@@ -1,0 +1,26 @@
+<div class="modalContainer">
+  <div class="modalWrapper">
+    <div class="titleContainer">
+      <h1 class="title">Are you sure?</h1>
+    </div>
+    <div class="bodyContainer">
+      <p>Are you sure you want to ban {{selectedUser?.email}}? <br>
+      This action is not reversible</p>
+    </div>
+    <div class="FooterWrapper">
+      <div mat-dialog-actions>
+        <ul class="leftbuttonsContainer navbar-nav nav-flex-icons">
+          <div class="btn-group shadow-none " role="group" aria-label="Basic example">
+            <button type="button" class="btn shadow-none cancel" mat-dialog-close><i class="fas fa-window-close"></i>
+              Cancel
+            </button>
+            <button type="button" class="btn shadow-none post" (click)="ban()" mat-dialog-close><i class="fas fa-check-square"></i>
+              Continue
+            </button>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

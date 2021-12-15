@@ -1,9 +1,16 @@
 .bodytestwrapper{
-  display: grid;
-  grid-template-columns: auto 800px;
-  align-items: start;
-  grid-template-rows: 600px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   background: black;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 30%;
+  div{
+    margin-top: 100px;
+  }
 }
 
 .testContainer{
@@ -16,11 +23,15 @@
   background: black;
 }
 
+.typewriter{
+  width: 300px;
+}
+
 .typewriter h2 {
   color: #fff;
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
-  border-right: .15em solid teal; /* The typwriter cursor */
+  border-right: .15em solid #3D8EB9; /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
   margin: 0 auto; /* Gives that scrolling effect as the typing happens */
   letter-spacing: .15em; /* Adjust as needed */
@@ -37,8 +48,8 @@
 
 /* The typewriter cursor effect */
 @keyframes blink-caret {
-  from, to { border-color: teal }
-  50% { border-color: teal }
+  from, to { border-color: rgba(0,0,0,0) }
+  50% { border-color: #3D8EB9 }
 }
 
 h1{
@@ -87,6 +98,7 @@ h1{
 }
 
 .handContainer{
+  justify-self: end;
   align-self: stretch;
   width: 500px;
   max-width: 500px;
@@ -96,4 +108,187 @@ h1{
   object-fit: contain;
   max-width: 500px;
   max-height: 500px;
+}
+.IndexContainer{
+  height:calc(100% - 160px);
+  width: 100%;
+}
+
+.about{
+  height: auto;
+  width: 100%;
+  background: white;
+  border-top: 5px solid #AF7C1B;
+}
+
+.aboutTitle{
+  width: 100%;
+  height:92px ;
+  h1{
+    margin-top: 50px;
+    margin-left: 50px;
+    color: black;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 42px;
+  }
+}
+
+.aboutUnderTitle{
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+  h2{
+    margin-left: 50px;
+    font-family: Roboto;
+    font-weight: 500;
+  }
+  .line{
+    margin-left: 50px;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  p{
+    margin-left: 50px;
+    font-family: Roboto;
+  }
+
+  .aboutButton{
+    margin-left: 50px;
+    width: 270px;
+    height: 30px;
+    cursor: pointer;
+    font-family: Roboto;
+    font-weight: normal;
+    font-size: 15px;
+    color: black;
+    background: white;
+    border: 1px solid black;
+    box-shadow: 2px 2px 0 black,
+    -2px -2px 0 black,
+    -2px 2px 0 black,
+    2px -2px 0 black;
+    transition: 500ms ease-in-out;
+  }
+
+  .aboutButton:hover{
+    box-shadow: 20px 2px 0 black, -20px -2px 0 black;
+  }
+}
+
+.features{
+  height: auto;
+  width: 100%;
+  background: black;
+  border-top: 5px solid #AF7C1B;
+
+}
+.featuresTitle{
+  width: 100%;
+  height:92px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  h1{
+    color: white;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 42px;
+  }
+}
+
+.featuresGrid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  .card{
+    width: 300px;
+    height: auto;
+  }
+}
+
+.team{
+  height: auto;
+  width: 100%;
+  background: white;
+  border-top: 5px solid #AF7C1B;
+}
+
+
+.teamTitle{
+  width: 100%;
+  height:92px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  h1{
+    margin-right: 50px;
+    margin-top: 50px;
+    color: black;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 42px;
+  }
+}
+
+.membersGrid{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 50px;
+  .card{
+    border: 1px solid black;
+    width: 250px;
+    height: auto;
+    box-shadow: 2px 2px 0 black,
+    -2px -2px 0 black,
+    -2px 2px 0 black,
+    2px -2px 0 black;
+    transition: 500ms ease-in-out;
+  }
+
+  .card:hover{
+    box-shadow: 20px 2px 0 black, -20px -2px 0 black;
+  }
+
+}
+
+.teamGrid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.teamText{
+  width: 100%;
+  height: auto;
+  padding-bottom: 50px;
+  text-align: start;
+  h2{
+    padding-left: 100px;
+    font-family: Roboto;
+    font-weight: 500;
+  }
+  .line{
+    margin-right: 50px;
+    text-align: end;
+    font-family: Roboto;
+    font-weight: 500;
+    font-size: 24px;
+  }
+
+  p{
+    padding-left: 100px;
+    font-family: Roboto;
+  }
 }

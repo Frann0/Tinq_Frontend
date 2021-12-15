@@ -48,11 +48,7 @@ export class FeedComponent implements OnInit {
       }
     });
     this.loggedInUser = JSON.parse(<string>localStorage.getItem('user'));
-    this.loggedInUser?.permissions.forEach((perm) => {
-      perm.id == 2 && perm.name == 'Admin'
-        ? (this.isAdmin = true)
-        : (this.isAdmin = false);
-    });
+    this.isAdmin = this._user.isAdmin();
 
     console.log(this.loggedInUser);
     document.body.style.backgroundColor = 'white';

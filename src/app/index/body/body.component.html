@@ -1,16 +1,171 @@
-<div class="bodytestwrapper">
-  <div class="testContainer">
-    <div class="title">
-      <img class="bodyLogo" src="assets/Logo/logo-big.png">
-      <div class="typewriter">
-        <h2>Helps you, help you.</h2>
+<div class="IndexContainer">
+  <div class="bodytestwrapper">
+    <div class="testContainer">
+      <div class="title">
+        <img class="bodyLogo" src="assets/Logo/logo-big.png">
+        <div class="typewriter">
+          <h2>Helps you, help you.</h2>
+        </div>
+        <a href="/auth/sign-up">
+          <button class="name noselect">Try it now! <i class="fa fa-angle-right"></i></button>
+        </a>
       </div>
-      <a href="/auth/sign-up">
-      <button class="name noselect">Try it now! <i class="fa fa-angle-right"></i></button>
-      </a>
     </div>
-  </div>
-    <div class="handContainer">
+    <div *ngIf="!mobile" class="handContainer">
       <img class="hand" src="assets/models/hand.png">
     </div>
+  </div>
+  <div class="about">
+    <div class="aboutTitle">
+      <h1>About us</h1>
+    </div>
+    <div class="aboutUnderTitle">
+      <p class="line">&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</p>
+      <h2>TINQ, the worlds first anonymous social media app, with focus on mental health training </h2>
+      <p>
+        Tinq, strives to help you, help you by enabling you to share your thoughts on our platform anonymously with the
+        whole world. <br>
+        The concept is based around a writing technique called <i>Expressive Writing</i>, with which you learn to <br>
+        process your thoughts on a whole other level. <br>
+        Think of Tinq as an online diary where you can share your thoughts and see others thoughts about subjects
+        completely anonymously.<br>
+      </p>
+      <a href="index/learn-more">
+        <button class="aboutButton">Read more about our project here! <i class="fa fa-angle-right"></i></button>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="features">
+    <div class="featuresTitle">
+      <h1>Features</h1>
+    </div>
+    <div class="featuresGrid">
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1499540633125-484965b60031?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+          class="card-img-top"
+          style="object-fit: cover"
+          alt="Community"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Community</h5>
+          <p class="card-text">
+            Join our ever growing community of thinkers. This platform allows you to express your self, without the normal stress
+            that comes with a standard social media platform.<br> <br>
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
+          class="card-img-top"
+          alt="Help your self"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Help your self</h5>
+          <p class="card-text">
+            Tinqs main focus is allowing you to help your self. We offer courses on how to write to help your self
+            process your thoughts in a special way. We use a technique called <i> Expressive Writing </i> with which
+            you will learn about your self. Of course this is not the only way to use the platform.
+            You can use the platform any way you'd like, within reason of course.
+            You can share your thoughts with the world, completely anonymously. And maybe, gain some insight
+            on some subjects you might not have thought of, or gain a new perspective on said subject. The world
+            (and this platform) is your oyster. Go share your thoughts with the world!
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img
+          src="https://images.unsplash.com/photo-1522262139463-236991a708cb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1235&q=80"
+          class="card-img-top"
+          alt="Not a normal Social Media platform"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Not a normal Social Media platform</h5>
+          <p class="card-text">
+            Share with us, an atypical Social Media Platform, with more focus on you instead of some online persona.
+            We are all guilty of getting a dopamine rush off of likes. But not here, this is for you, by you.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team">
+    <div class="teamTitle">
+      <h1>Meet the team!</h1>
+    </div>
+    <div class="teamGrid">
+        <div class="membersGrid">
+          <div class="card">
+            <img
+              src="https://www.w3schools.com/howto/img_avatar.png"
+              class="card-img-top"
+              alt="Jonas"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Jonas Buus, CEO</h5>
+              <p class="card-text">
+                The brain behind the concept of tinq, helping steer this project in the right direction.<br> <br> <br>
+              </p>
+            </div>
+          </div>
+          <div class="card">
+            <img
+              src="https://www.w3schools.com/howto/img_avatar.png"
+              class="card-img-top"
+              alt="Mike"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Mike Hovedskov, CDO</h5>
+              <p class="card-text">
+                Front end fanatic, with focus on UI/UX <br> <br> <br> <br>
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <img
+              src="https://www.w3schools.com/howto/img_avatar.png"
+              class="card-img-top"
+              alt="Dennis"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Dennis Puggaard Christensen, CTO</h5>
+              <p class="card-text">
+                Backend brainiac, head of functionality <br> <br> <br> <br>
+              </p>
+            </div>
+          </div>
+      </div>
+      <div class="teamText">
+        <p class="line">&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;&boxh;</p>
+        <h2>Meet our dedicated and hardworking team</h2>
+        <p>
+          Tinq is currently being developed, maintained and ran by <br>three young and adventurous entrepreneurs from small town Esbjerg, Denmark.<br>
+          This platform started as a project for our 3rd semester exam, but we hope to continue development<br>
+          on this wonderful idea of a platform. We of course also would also love to see more members join our ranks<br>
+
+          <br>
+
+          The three people we have currently is as follows: <br>
+          <br> Jonas Buus, CEO and face of Tinq. Jonas' main focus is keeping our company vision and goals inline <br>
+          as well as helping developing the platform further.<br>
+          <br> Mike Hovedskov, CDO and visionair of the platforms look and feel. Mike's main focus is on everything visual,<br>
+          mainly frontend developer but is capable of helping with backend development as well.<br>
+          <br> Dennis Puggaard Christensen, CTO and brain behind the functionality of the platform. Dennis' main focus is developing <br>
+          and maintaining the backend code. But has the capability to help out on the frontend as well.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
 </div>
+
+
