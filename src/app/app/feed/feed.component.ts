@@ -1,14 +1,14 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
-import {ActivatedRoute} from "@angular/router";
-import {RegisterUserDto} from "../../Auth/shared/registerUser.dto";
-import {TinqDto} from "../shared/tinqDto";
-import {PostsService} from "../shared/posts.service";
-import {HttpClient} from "@angular/common/http";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
+import { RegisterUserDto } from '../../Auth/shared/registerUser.dto';
+import { TinqDto } from '../shared/tinqDto';
+import { PostsService } from '../shared/posts.service';
+import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable } from 'rxjs';
 import { TinqModel } from '../shared/tinqModel';
-import {LoggedInUserDto} from "../../Auth/shared/loggedInUser.dto";
-import {UserServiceService} from "../../shared/user-service.service";
+import { LoggedInUserDto } from '../../Auth/shared/loggedInUser.dto';
+import { UserServiceService } from '../../shared/user-service.service';
 
 @Component({
   selector: 'app-feed',
@@ -20,7 +20,7 @@ export class FeedComponent implements OnInit {
   posts$: Observable<TinqModel[]> | undefined;
   error: any;
 
-  public str = "";
+  public str = '';
 
   loggedInUser: LoggedInUserDto | undefined;
   public isAdmin: boolean = false;
@@ -35,32 +35,38 @@ export class FeedComponent implements OnInit {
     private _user: UserServiceService
   ) {}
 
-
   ngOnInit(): void {
-    this.posts$=this._postsService.getAll();
+    this.posts$ = this._postsService.getAll();
 
     this.route.params.subscribe((params) => {
       if (params['searchTerm']) {
-        this.filteredTinqs = this._postsService.getPostsBySearchQuery(params['searchTerm']);
+        this.filteredTinqs = this._postsService.getPostsBySearchQuery(
+          params['searchTerm']
+        );
       } else {
         this.filteredTinqs = this.posts$;
       }
     });
-    this.loggedInUser = JSON.parse(<string>localStorage.getItem("user"));
-    this.loggedInUser?.permissions.forEach((perm) =>{
-      perm.id== 2 && perm.name == "Admin" ? this.isAdmin = true : this.isAdmin = false;
+    this.loggedInUser = JSON.parse(<string>localStorage.getItem('user'));
+    this.loggedInUser?.permissions.forEach((perm) => {
+      perm.id == 2 && perm.name == 'Admin'
+        ? (this.isAdmin = true)
+        : (this.isAdmin = false);
     });
 
-    console.log(this.loggedInUser)
+    console.log(this.loggedInUser);
     document.body.style.backgroundColor = 'white';
   }
 
-  //TODO need some way to make it get id
-  public deletePost() {
-    var id = 2;
+  public deletePost(id: number) {
     var tinqDto: TinqDto = new TinqModel();
     tinqDto.id = id;
     this._postsService.deletePost(tinqDto);
+    window.location.reload();
+  }
+
+  public getUserId(): number{
+    return this.loggedInUser?.id??0
   }
 
   debug(string: string) {

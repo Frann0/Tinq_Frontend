@@ -27,7 +27,7 @@ export class DialogComponent implements OnInit {
     // @ts-ignore
     let tags = this.postForm.get('tags').value;
     let userId = JSON.parse(<string>localStorage.getItem("user")).id;
-    this._postService.createPost(title, body, tags, userId)
+    this._postService.createPost(title, body, tags, userId);
     window.location.reload();
   }
 
