@@ -1,12 +1,11 @@
 @import "hover";
 
-.bodyContainer{
+.bodyContainer {
   width: 100%;
   height: 100%;
-  max-height: 800px;
 }
 
-.feedContainer{
+.feedContainer {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -14,58 +13,84 @@
   overflow-x: hidden;
   width: auto;
   height: 100%;
-  max-height: 800px;
   margin: 0 auto;
 }
 
-.tinqWrapper{
+.tinqWrapper {
   border-radius: 20px;
   width: 500px;
-  height: 600px;
+  height: auto;
   margin: 25px auto;
   background: white;
   color: black;
-  box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.1);
-  transition: .25s cubic-bezier(0.25, 0, 0, 1);
+  box-shadow: 0px 0px 16px 2px rgba(0, 0, 0, 0.1);
+  transition: 0.25s cubic-bezier(0.25, 0, 0, 1);
+  transition: height 1s;
 }
 
-.tinqWrapper:hover{
-  margin: 50px auto 0;
-
+.tinqWrapper:hover {
+  transition: margin 1s;
+  margin: 60px auto 0;
+  .body {
+    max-height: max-content;
+    white-space: normal;
+  }
+  .by {
+    white-space: normal;
+  }
+  .footerContainer{
+    height: auto;
+  }
+  .tagWrapper{
+    white-space: normal;
+    overflow: hidden;
+  }
 }
 
-.byContainer{
+.by {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.body {
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.byContainer {
   width: 100%;
-  height: 45px;
+  height: auto;
   border: solid darkgray;
   border-width: 0 0 1px 0;
 }
 
-.byWrapper{
+.byWrapper {
   width: 80%;
-  height: 45px;
+  height: auto;
   margin: 0 auto;
   padding-top: 20px;
 }
 
-.byContainer p{
+.byContainer p {
   text-align: start;
   font-family: Roboto;
   font-weight: lighter;
   font-style: italic;
 }
 
-.contentContainer{
+.contentContainer {
   width: 100%;
-  height:80%;
-  max-height: 80%;
+  height: 80%;
   overflow-y: scroll;
   overflow-x: hidden;
+  text-overflow: clip;
   align-items: center;
   justify-content: center;
 }
 
-.contentContainer p{
+.contentContainer p {
   width: 80%;
   margin: 5px auto 5px;
   font-size: 20px;
@@ -73,14 +98,14 @@
   font-weight: normal;
 }
 
-.footerContainer{
+.footerContainer {
   width: 100%;
   height: 45px;
   border: solid darkgray;
   border-width: 1px 0 0 0;
 }
 
-.tagWrapper{
+.tagWrapper {
   width: 80%;
   margin: 0 auto;
   display: flex;
@@ -88,25 +113,24 @@
   flex-wrap: nowrap;
   flex-direction: row;
   overflow-x: scroll;
-
 }
 
-.footerContainer p{
+.footerContainer p {
   width: 80%;
   margin: 5px;
   font-family: Roboto;
   font-weight: lighter;
 }
-.newpost{
+
+.newpost {
   position: fixed;
-  right: 0px; bottom: 100px;
+  right: 0px;
+  bottom: 100px;
 }
 
-.noPosts{
+.noPosts {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
-

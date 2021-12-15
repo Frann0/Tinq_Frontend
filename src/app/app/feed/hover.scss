@@ -1,7 +1,8 @@
 .card {
   border-radius: 20px;
   width: 500px;
-  height: 600px;
+  height: auto;
+  min-height: 200;
   background: white;
   color: black;
   box-shadow: 0px 0px 16px 2px rgba(0,0,0,0.41);
@@ -87,7 +88,7 @@
   }
 
   .container {
-    position: absolute;
+    position: sticky;
     width:100%;
     height:100%;
     border-radius:1rem;
@@ -95,6 +96,7 @@
     color:black;
   }
   &:hover .multi-button { //Hover or a button inside is focused
+    transition: width 0.5s,height 0.5s;
     width:10rem;
     height:10rem;
   }
