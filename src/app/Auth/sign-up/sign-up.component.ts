@@ -33,6 +33,7 @@ export class SignUpComponent implements OnInit{
       const userdto = {email: this.RegForm.get('email')?.value,
                        password: this.RegForm.get('password')?.value} as RegisterUserDto;
       this._auth.register(userdto).subscribe(data => data ? this.router.navigate(['/auth/sign-up/success']) : this.Failed = true);
-    }
+    }else{
+      this.Failed = true;}
   }
 }

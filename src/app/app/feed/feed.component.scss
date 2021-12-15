@@ -2,7 +2,7 @@
 
 .bodyContainer{
   width: 100%;
-  border: 1px solid red;
+  overflow-x: hidden;
 }
 
 .feedContainer{
@@ -13,9 +13,7 @@
   overflow-x: hidden;
   width: auto;
   height:calc(100vh - 160px);
-
   margin: 0 auto;
-  border: 1px solid blue;
 }
 
 .tinqWrapper{

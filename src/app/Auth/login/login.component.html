@@ -6,7 +6,7 @@
       <h1 class="title">LOG IN</h1>
     </div>
     <div class="BodyWrapper" >
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <form [formGroup]="loginForm" (keyup.enter)="login()" (ngSubmit)="login()">
         <div class="form-floating mb-3">
           <input type="email" class="form-control" id="email" placeholder="name@example.com" formControlName="email" >
           <label for="email">Email address</label>
