@@ -13,13 +13,14 @@
               <button class="fas fa-heart" (click)="debug('like')"></button>
               <button class="fas fa-comment" (click)="debug('comment')"></button>
               <button class="fas fa-user-slash" (click)="debug('ban')"></button>
-              <button class="fas fa-trash" (click)="deletePost()"></button>
+              <button class="fas fa-trash" (click)="deletePost(tinq.id)"></button>
             </div>
 
             <ng-template #user>
               <div class="multi-button">
                 <button class="fas fa-heart" (click)="debug('like')"></button>
                 <button class="fas fa-comment" (click)="debug('comment')"></button>
+                <button *ngIf="tinq.userId==getUserId()"class="fas fa-trash" (click)="deletePost(tinq.id)"></button>
               </div>
             </ng-template>
 
