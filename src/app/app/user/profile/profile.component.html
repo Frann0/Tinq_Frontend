@@ -1,7 +1,7 @@
 <div class="headerContainer">
-<div class="header">
-  <p class="username">User page for: {{Username}}</p>
-</div>
+  <div class="header">
+    <p class="username">User page for: {{Username}}</p>
+  </div>
 </div>
 
 <div class="ProfileContainer">
@@ -17,7 +17,8 @@
 
             <ng-template #user>
               <div class="multi-button">
-                <button class="fas fa-trash" (click)="debug(tinq.userId.toString() + ' - ' + tinq.id.toString())"></button>
+                <button class="fas fa-trash"
+                        (click)="debug(tinq.userId.toString() + ' - ' + tinq.id.toString())"></button>
               </div>
             </ng-template>
 
@@ -44,7 +45,8 @@
 
     <ng-template #noPosts>
       <h3 class="noPosts">No Posts found! Don't be shy! Let your thoughts flow and share them with the world</h3>
-      <h3 class="noPosts" style="margin-top: 20px"><a href="/app"> <i class="fa fa-angle-left"></i>&nbsp; Back to feed!</a></h3>
+      <h3 class="noPosts" style="margin-top: 20px"><a href="/app"> <i class="fa fa-angle-left"></i>&nbsp; Back to feed!</a>
+      </h3>
     </ng-template>
 
     <ng-template #loading>

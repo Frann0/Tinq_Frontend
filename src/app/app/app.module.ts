@@ -15,6 +15,8 @@ import { UserComponent } from './user/user.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AdminComponent } from './user/admin/admin.component';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import { EditUserComponent } from './user/admin/edit-user/edit-user.component';
+import { ConfirmationComponent } from './user/admin/confirmation/confirmation.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     DialogComponent,
     UserComponent,
     ProfileComponent,
-    AdminComponent
+    AdminComponent,
+    EditUserComponent,
+    ConfirmationComponent
 
   ],
   imports: [

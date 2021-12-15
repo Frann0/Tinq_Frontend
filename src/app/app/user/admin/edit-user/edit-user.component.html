@@ -1,0 +1,31 @@
+<div class="modalContainer">
+  <div class="modalWrapper">
+    <div class="titleContainer">
+      <h1 class="title">Edit Permissions</h1>
+    </div>
+    <div class="bodyContainer">
+      <div class="permissionDropdown form-group" [formGroup]="userForm">
+        <label for="permission">Edit Permissions for {{selectedUser?.username}}</label>
+        <select class="form-control" formControlName="permission" [value]='defaultValue' id="permission">
+          <option>Admin</option>
+          <option>Registered User</option>
+        </select>
+      </div>
+    </div>
+    <div class="FooterWrapper">
+      <div mat-dialog-actions>
+        <ul class="leftbuttonsContainer navbar-nav nav-flex-icons">
+          <div class="btn-group shadow-none " role="group" aria-label="Basic example">
+            <button type="button" class="btn shadow-none cancel" mat-dialog-close><i class="fas fa-window-close"></i>
+              Cancel
+            </button>
+            <button type="button" class="btn shadow-none post" (click)="editUser()" mat-dialog-close><i class="fas fa-check-square"></i>
+              Save
+            </button>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+

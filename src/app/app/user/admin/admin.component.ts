@@ -3,6 +3,10 @@ import {AuthService} from "../../../Auth/shared/auth.service";
 import {Observable, pipe, startWith} from "rxjs";
 import {TableUserDto} from "../../../Auth/shared/tableUser.dto";
 import {FormControl} from "@angular/forms";
+import {MatDialog} from "@angular/material/dialog";
+import {EditUserComponent} from "./edit-user/edit-user.component";
+import {UserServiceService} from "../../../shared/user-service.service";
+import {ConfirmationComponent} from "./confirmation/confirmation.component";
 
 @Component({
   selector: 'app-admin',
@@ -12,27 +16,26 @@ import {FormControl} from "@angular/forms";
 export class AdminComponent implements OnInit{
 
   //@ts-ignore
-  allUsers: TableUserDto[];
-  filter = new FormControl('');
-  constructor(private _auth : AuthService) {
+  allUsers: Observable<TableUserDto[]>;
+  searchTerm: string="";
+  constructor(private _auth : AuthService, private dialog: MatDialog, private _user : UserServiceService) {
 
   }
 
   ngOnInit(): void {
-    this._auth.getAllUsers().subscribe(users => {
-     console.log(users as TableUserDto[])
-      this.allUsers = users as TableUserDto[]
-    });
+    this.allUsers = this._auth.getAllUsersWithPermissions();
     document.body.style.backgroundColor = 'white';
   }
 
-  search(text: string): TableUserDto[] {
-    return this.allUsers.filter(user => {
-      const term = text.toLowerCase();
-      return user.id.toString().toLowerCase().includes(term)
-        || user.username.toLowerCase().includes(term)
-        || user.email.toLowerCase().includes(term);
-    });
+  openDialog(selectedUser: TableUserDto) {
+    this.dialog.open(EditUserComponent).componentInstance.selectedUser = selectedUser;
   }
 
+  isAdmin(user: TableUserDto): boolean{
+    return this._user.isAdminByUserObject(user);
+  }
+
+  Ban(user : TableUserDto) {
+    this.dialog.open(ConfirmationComponent).componentInstance.selectedUser = user;
+  }
 }

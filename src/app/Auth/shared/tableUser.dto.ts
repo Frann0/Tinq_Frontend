@@ -6,4 +6,5 @@ export interface TableUserDto {
   id: number;
   username: string;
   email: string;
+  permissions: PermissionDto[];
 }

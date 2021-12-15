@@ -1,26 +1,35 @@
 <app-navbar></app-navbar>
 
-<div>
-  <div>
-    <table class="table table-striped">
+<div class="headerContainer">
+  <div class="header">
+    <p class="editUserheader">Edit Users</p>
+  </div>
+</div>
+  <div class="wrapper">
+    <table class="tableTest table table-striped">
       <thead>
       <tr>
         <th scope="col">#</th>
         <th scope="col">ID</th>
         <th scope="col">Username</th>
         <th scope="col">Email</th>
+        <th scope="col">Admin</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Ban</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of allUsers; index as i">
+      <tr class="tableRow" *ngFor="let user of allUsers | async; index as i">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{user.id}}</td>
         <td>{{ user.username}}</td>
         <td>{{ user.email }}</td>
+        <td>{{ isAdmin(user)}}</td>
+        <td><button class="edit" (click)="openDialog(user)">Edit</button></td>
+        <td><button class="ban" (click)="Ban(user)">Ban</button></td>
       </tr>
       </tbody>
     </table>
   </div>
-</div>
 
 <app-footer></app-footer>

@@ -54,5 +54,9 @@ export class AuthService {
   getAllUsers() {
     return this._http.get<TableUserDto[]>(environment.api + '/api/Auth/allusers');
   }
+
+  getAllUsersWithPermissions() {
+    return this._http.get<TableUserDto[]>(environment.api + '/api/Auth/GetAllUsersWithPermissions');
+  }
 }
 
