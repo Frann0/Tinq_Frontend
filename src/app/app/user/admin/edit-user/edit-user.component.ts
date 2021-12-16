@@ -17,7 +17,11 @@ export class EditUserComponent implements OnInit {
   constructor(private fb : FormBuilder, private _userService : UserServiceService) { }
 
   editUser() {
-    console.log(this.userForm.get("permission")?.value)
+    if (this.userForm.get("permission")?.value == "Admin"){
+      this._userService.assignAdmin(this.selectedUser);
+    } else {
+      this._userService.removeAdmin(this.selectedUser);
+    }
     //this._userService.editUser();
   }
   ngOnInit(): void {

@@ -18,7 +18,6 @@ export class ConfirmationComponent implements OnInit {
   ban(){
     if (this.selectedUser) {
       this._user.ban(this.selectedUser);
-      window.location.reload();
     }
   }
 
