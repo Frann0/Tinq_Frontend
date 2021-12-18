@@ -22,12 +22,12 @@ export class AuthService {
     return this._http
       .post<LoggedInUserDto>(environment.api + '/api/auth/login', loginDto)
       .pipe(
-        tap(token => {
-          if(token.token && token.token.token) {
-            localStorage.setItem(jwtToken, token.token.token);
-            localStorage.setItem("user", JSON.stringify(token));
-            this.isLoggedIn$.next(token.token.token);
-            this.LoggedInUser = token as LoggedInUserDto;
+        tap(user => {
+          if(user.token && user.token) {
+            localStorage.setItem(jwtToken, user.token);
+            localStorage.setItem("user", JSON.stringify(user));
+            this.isLoggedIn$.next(user.token);
+            this.LoggedInUser = user as LoggedInUserDto;
           } else {
             this.logout();
           }

@@ -7,5 +7,5 @@ export interface LoggedInUserDto {
   username: string;
   email: string;
   permissions: PermissionDto[];
-  token: TokenDto;
+  token: string;
 }
