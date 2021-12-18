@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api: "localhost:5001"
+  api: "https://tinqbackend.azurewebsites.net"
 };
