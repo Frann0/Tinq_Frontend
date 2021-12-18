@@ -3,6 +3,7 @@ import {Observable} from "rxjs";
 import {TinqModel} from "../../shared/tinqModel";
 import {PostsService} from "../../shared/posts.service";
 import {LoggedInUserDto} from "../../../Auth/shared/loggedInUser.dto";
+import {TinqDto} from "../../shared/tinqDto";
 
 @Component({
   selector: 'app-profile',
@@ -33,7 +34,10 @@ export class ProfileComponent implements OnInit {
     console.log(val);
   }
 
-  deletePost(id : number) {
-    this._postsService.deletePostTest(id);
+  public deletePost(id: number) {
+    var tinqDto: TinqDto = new TinqModel();
+    tinqDto.id = id;
+    this._postsService.deletePost(tinqDto);
+    window.location.reload();
   }
 }
