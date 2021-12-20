@@ -65,7 +65,14 @@ export class UserServiceService implements OnInit {
   }
 
   ban(user: TableUserDto) {
-    this._http.delete(environment.api + "/api/Auth/deleteprofile/" + user.email).subscribe(s => console.log(s));
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+      }),
+      body: user
+    };
+    this._http.delete(environment.api + "/api/Auth/deleteprofile/", options).subscribe(s => console.log(s));
+    window.location.reload();
   }
 
   assignAdmin(selectedUser: TableUserDto | undefined) {
