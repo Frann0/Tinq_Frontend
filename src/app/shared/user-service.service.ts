@@ -72,6 +72,7 @@ export class UserServiceService implements OnInit {
       body: user
     };
     this._http.delete(environment.api + "/api/Auth/deleteprofile/", options).subscribe(s => console.log(s));
+    window.location.reload();
   }
 
   assignAdmin(selectedUser: TableUserDto | undefined) {
